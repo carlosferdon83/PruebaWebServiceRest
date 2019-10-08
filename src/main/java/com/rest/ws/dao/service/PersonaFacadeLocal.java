@@ -7,7 +7,7 @@ import javax.ejb.Local;
 @Local
 public interface PersonaFacadeLocal {
 
-    void create(Persona persona);
+    Persona create(Persona persona);
 
     void edit(Persona persona);
 

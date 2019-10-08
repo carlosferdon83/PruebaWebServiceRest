@@ -7,7 +7,7 @@ import javax.ejb.Local;
 @Local
 public interface GeoFacadeLocal {
 
-    void create(Geo geo);
+    Geo create(Geo geo);
 
     void edit(Geo geo);
 

@@ -32,9 +32,10 @@ public abstract class CrudService<T> {
          * @descripcion registra una entidad en base de datos
          * @param entity
 	 */
-    public void create(T entity) {
+    public T create(T entity) {
         try{
             getEntityManager().persist(entity);
+            return entity;
         }catch(ConstraintViolationException ex){
             throw new PersistenceException("No se puede persistir la entidad: " + entity + " error " +ex.getMessage());
         }catch(PersistenceException ex){

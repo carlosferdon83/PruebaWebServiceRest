@@ -61,10 +61,7 @@ public class Persona implements Serializable {
     @Size(min = 1, max = 50)
     @Column(name = "email", nullable = false, length = 50)
     private String email;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "id_address", nullable = false)
-    private int idAddress;
+    
     // @Pattern(regexp="^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$", message="Invalid phone/fax format, should be as xxx-xxx-xxxx")//if the field contains phone or fax number consider using this annotation to enforce field validation
     @Basic(optional = false)
     @NotNull
@@ -90,12 +87,11 @@ public class Persona implements Serializable {
         this.id = id;
     }
 
-    public Persona(Integer id, String name, String username, String email, int idAddress, String phone, String website) {
+    public Persona(Integer id, String name, String username, String email, String phone, String website) {
         this.id = id;
         this.name = name;
         this.username = username;
-        this.email = email;
-        this.idAddress = idAddress;
+        this.email = email;        
         this.phone = phone;
         this.website = website;
     }
@@ -130,14 +126,6 @@ public class Persona implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public int getIdAddress() {
-        return idAddress;
-    }
-
-    public void setIdAddress(int idAddress) {
-        this.idAddress = idAddress;
     }
 
     public String getPhone() {

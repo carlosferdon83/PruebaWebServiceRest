@@ -1,14 +1,42 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        Hello from Facelets
-        <br />
-        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+        <h:form id="form">
+            <div style="center">
+                <p:panel header="Consumir servicio" style="width:650px; font-size: 12px;">
+                    <h:panelGrid columns="1">
+                        <p:commandButton value="Consumir Servicio" id="boton" action="#{empleadosController.consumirServicio}" update="lista"/>
+                    </h:panelGrid>
+                </p:panel>       
+                <p:dataTable id="lista" value="#{empleadosController.listaPersona}" var="lista" rows="10">
+                    <p:column headerText="Name">
+                        <h:outputText value="#{lista.name}" />
+                        </p:column>
+
+                        <p:column headerText="UserName">
+                            <h:outputText value="#{lista.username}" />
+                        </p:column>
+
+                        <p:column headerText="Email">
+                            <h:outputText value="#{lista.email}" />
+                        </p:column>
+
+                        <p:column headerText="Direcion - Ciudad">
+                            <h:outputText value="#{lista.address.street} - #{lista.address.city}" />
+                        </p:column>
+                    
+                        <p:column headerText="Compania">
+                            <h:outputText value="#{lista.idCompany.name}" />
+                        </p:column>
+                </p:dataTable>      
+            </div>
+        </h:form>
     </h:body>
 </html>
 

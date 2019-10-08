@@ -7,7 +7,7 @@ import javax.ejb.Local;
 @Local
 public interface CompanyFacadeLocal {
 
-    void create(Company company);
+    Company create(Company company);
 
     void edit(Company company);
 
